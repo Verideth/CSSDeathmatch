@@ -46,7 +46,7 @@ public Action ForceLevel(Handle timer)
 		"de_prodigy"
 	}
 
-    ForceChangeLevel(maps[GetRandomInt(0, 6)], "Changing because the winner has won the game!");
+    	ForceChangeLevel(maps[GetRandomInt(0, 6)], "Changing because the winner has won the game!");
 }
  
 public Action GiveWeapon(Event event, const char[] name, bool dontBroadcast)
@@ -92,19 +92,19 @@ public Action GiveWeapon(Event event, const char[] name, bool dontBroadcast)
  
 public Action Respawn(Handle timer, any serial)
 {
-    int client = GetClientFromSerial(serial); // Validate client serial
+   	int client = GetClientFromSerial(serial); // Validate client serial
    
 	if (client == 0) 
 	{
-        return Plugin_Stop;
-    }
+        	return Plugin_Stop;
+    	}
  
-    if (GetClientTeam(client) != 1) //if not spectate continue
-    {
-        CS_RespawnPlayer(client);
-    }
+    	if (GetClientTeam(client) != 1) //if not spectate continue
+    	{
+    	    CS_RespawnPlayer(client);
+    	}
 	
-    return Plugin_Continue;
+	return Plugin_Continue;
 }
  
 public Action CS_OnBuyCommand(int client, const char[] weapon)
@@ -114,8 +114,8 @@ public Action CS_OnBuyCommand(int client, const char[] weapon)
 
 public void OnPluginStart()
 {
-    PrintToChatAll("\x03Welcome to deathmath! A gamemode made by verideth!");
+   	 PrintToChatAll("\x03Welcome to deathmath! A gamemode made by verideth!");
 	
-    HookEvent("player_death", PlayerDeath);
+    	HookEvent("player_death", PlayerDeath);
 	  HookEvent("player_spawn", GiveWeapon);
 }
